@@ -431,16 +431,16 @@ class ArloCamera(ArloChildDevice):
             with self._lock:
                 if not self.has_user_request("recording"):
                     self._remote_users.add("recording")
-                    if not self.has_any_local_users:
-                        self._local_users.add("remote")
+                    # if not self.has_any_local_users:
+                    #     self._local_users.add("remote")
                 self._lock.notify_all()
                 self._dump_activities("_event::record")
         if activity == "userStreamActive":
             with self._lock:
                 if not self.has_user_request("streaming"):
                     self._remote_users.add("streaming")
-                    if not self.has_any_local_users:
-                        self._local_users.add("remote")
+                    # if not self.has_any_local_users:
+                    #     self._local_users.add("remote")
                 self._lock.notify_all()
                 self._dump_activities("_event::stream")
 
